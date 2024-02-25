@@ -18,6 +18,7 @@ configurations {
 }
 
 repositories {
+    mavenLocal()
     mavenCentral()
     def artifactoryUsername = System.getenv("MODERNE_ARTIFACTORY_USERNAME")
     def artifactoryPassword = System.getenv("MODERNE_ARTIFACTORY_PASSWORD")

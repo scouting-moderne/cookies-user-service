@@ -1,5 +1,7 @@
 package io.moderne.scouting.cookies.user;
 
+import io.moderne.scouting.cookies.error.ApiError;
+import io.moderne.scouting.cookies.error.ApiException;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -21,7 +23,7 @@ public class UserService {
 
     public User updateUser(String id, User user) {
         if (user.id() != null && !user.id().equals(id)) {
-            throw new IllegalArgumentException("User id cannot be changed");
+            throw new ApiException(new ApiError("User", "User id cannot be changed"));
         }
         User old = db.get(id);
         if (old == null) {
